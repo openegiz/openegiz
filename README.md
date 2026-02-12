@@ -94,12 +94,12 @@ python3 data-generator/data_generator.py
 5. In the right corner select visualization **Unity**
 6. In the bottom of the screen write a query to get data from the twins
     ```flux
-    from(bucket: "default")
-    |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
-    |> filter(fn: (r) => r["_field"] == "value_active_power_kw_properties_value" or r["_field"] == "value_current_a_properties_value" or r["_field"] == "value_power_factor_properties_value" or r["_field"] == "value_voltage_v_properties_value")
-    |> last()
-    |> pivot(rowKey:["_time"], columnKey: ["_field"], valueColumn: "_value")
-    |> keep(columns: ["thingId", "value_voltage_v_properties_value", "value_current_a_properties_value", "value_active_power_kw_properties_value", "value_power_factor_properties_value"])
+   from(bucket: "default")
+   |> range(start: -30s)
+   |> filter(fn: (r) => r["_field"] == "value_active_power_kw_properties_value" or r["_field"] == "value_current_a_properties_value" or r["_field"] == "value_power_factor_properties_value" or r["_field"] == "value_voltage_v_properties_value")
+   |> last()
+   |> pivot(rowKey:["_time"], columnKey: ["_field"], valueColumn: "_value")
+   |> keep(columns: ["thingId", "value_voltage_v_properties_value", "value_current_a_properties_value", "value_active_power_kw_properties_value", "value_power_factor_properties_value"])
     ```
 7. Click the **Query Inspector** and in the opened panel click the **refresh** button 
 8. In the right panel, configure the **Unity model** section:

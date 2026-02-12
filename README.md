@@ -38,7 +38,12 @@ chmod 700 get_helm.sh
 > Hono is disabled by default in `values.yaml`. If you need it, set `hono.enabled: true`.
 
 ```bash
-helm install openegiz ./ --wait --timeout=15m --debug
+make install openegiz ./ --wait --timeout=15m --debug
+```
+
+While waiting for the installation to complete, you can monitor the pod statuses by running:
+```bash
+watch -n 1 kubectl get pods
 ```
 
 ## Upload Unity WebGL Build
@@ -62,7 +67,6 @@ make upload-build
 5. Set the **Namespace** to `org.openegiz`
 6. Set the **ID** to `oven-01`
 7. Select creation strategy: **From scratch**
-
 8. Set the **Policy ID** to `default:basic-policy`
 9. Set the **Name** to `Oven 1`
 10. Add 4 features with the following names:
@@ -97,15 +101,16 @@ python3 data-generator/data_generator.py
     |> pivot(rowKey:["_time"], columnKey: ["_field"], valueColumn: "_value")
     |> keep(columns: ["thingId", "value_voltage_v_properties_value", "value_current_a_properties_value", "value_active_power_kw_properties_value", "value_power_factor_properties_value"])
     ```
-7. In the right panel, configure the **Unity model** section:
+7. Click the **Query Inspector** and in the opened panel click the **refresh** button 
+8. In the right panel, configure the **Unity model** section:
    - **Mode**: `External links`
    - Paste the links from `make upload-build` output into the corresponding fields (`.data`, `.framework.js`, `.loader.js`, `.wasm`)
-8. In the **Send data to Unity** section:
+9. In the **Send data to Unity** section:
    - **Grafana query**: `name of your query`
    - **Mode**: `Send data to GameObjects by ID column`
    - **ID column**: `thingId`
    - **Unity function**: `SetValues`
-9. Click **Apply** to save the panel
+10. Click **Apply** to save the panel
 ## Makefile Commands
 
 | Command              | Description                                  |

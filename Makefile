@@ -13,7 +13,7 @@ upgrade:
 
 ## Uninstall the OpenEgiz Helm chart
 uninstall:
-	helm uninstall $(RELEASE_NAME)
+	helm uninstall $(RELEASE_NAME) --wait
 
 ## Show pod statuses
 status:

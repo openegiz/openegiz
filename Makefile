@@ -1,4 +1,4 @@
-.PHONY: install uninstall status endpoints upgrade upload-build generate-data
+.PHONY: install uninstall status endpoints upgrade upload-build generate-data copy-build
 
 RELEASE_NAME := openegiz
 CHART_PATH   := .
@@ -30,3 +30,8 @@ upload-build:
 ## Run the data generator for oven twins
 generate-data:
 	@bash -c 'source data-generator/venv/bin/activate && python3 data-generator/data_generator.py'
+
+## Copy 4 Unity WebGL build files from SRC into ./build/
+## Usage: make copy-build SRC=/path/to/source
+copy-build:
+	@bash scripts/copy-build.sh $(SRC)

@@ -38,7 +38,7 @@ chmod 700 get_helm.sh
 > Hono is disabled by default in `values.yaml`. If you need it, set `hono.enabled: true`.
 
 ```bash
-make install openegiz ./ --wait --timeout=15m --debug
+make install
 ```
 
 While waiting for the installation to complete, you can monitor the pod statuses by running:

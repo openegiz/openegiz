@@ -41,6 +41,13 @@ chmod 700 get_helm.sh
 make install
 ```
 
+> **Примечание:** При первой установке MongoDB может не успеть запуститься до ditto-extended-api. Из-за этого Grafana не сможет подключиться. Перезапустите под:
+
+```bash
+kubectl rollout restart deployment/openegiz-ditto-extended-api
+```
+
+
 While waiting for the installation to complete, you can monitor the pod statuses by running:
 ```bash
 watch -n 1 kubectl get pods

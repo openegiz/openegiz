@@ -1,3 +1,6 @@
 get_helm.sh
 .venv
 venv
+data-generator/lightbulb_generator.log
+data-generator/lightbulb_generator.pid
+

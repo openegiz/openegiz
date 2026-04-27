@@ -1,5 +1,9 @@
 # OpenEgiz
 
+<p align="center">
+  <img src="openegiz_logo_centered.svg" alt="OpenEgiz logo" width="240">
+</p>
+
 An open-source digital twin platform based on OpenTwins.
 
 ## Prerequisites

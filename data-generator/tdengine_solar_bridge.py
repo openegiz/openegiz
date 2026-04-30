@@ -70,7 +70,10 @@ def build_ditto_message(thing_id, features):
     namespace, name = thing_id.split(":", 1)
 
     return {
-        "topic": f"{namespace}/{name}/things/twin/commands/modify",
+        "topic": f"{namespace}/{name}/things/twin/commands/merge",
+        "headers": {
+            "content-type": "application/merge-patch+json",
+        },
         "path": "/features",
         "value": features,
     }
@@ -133,16 +136,17 @@ class SolarBridge:
             if not thing_id:
                 return
 
+            openegiz_topic = f"telemetry/{thing_id}"
             features = site_to_features(data)
             ditto_message = build_ditto_message(thing_id, features)
 
-            openegiz_topic = f"telemetry/{thing_id}"
             result = self.out_client.publish(
                 openegiz_topic,
                 json.dumps(ditto_message),
                 qos=0,
             )
             result.wait_for_publish(timeout=5)
+
             self.count_out += 1
 
             ac_power = data.get("AC_Power_MW")

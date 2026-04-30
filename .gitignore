@@ -4,3 +4,4 @@ venv
 data-generator/lightbulb_generator.log
 data-generator/lightbulb_generator.pid
 data-generator/tdengine_solar_bridge.log
+data-generator/ml_solar_service.log

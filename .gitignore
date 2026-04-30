@@ -5,3 +5,6 @@ data-generator/lightbulb_generator.log
 data-generator/lightbulb_generator.pid
 data-generator/tdengine_solar_bridge.log
 data-generator/ml_solar_service.log
+data-generator/AR/cert.pem
+data-generator/AR/key.pem
+data-generator/AR/https_server.log

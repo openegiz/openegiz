@@ -3,14 +3,14 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: pv-opentwins-hono
+  name: pv-openegiz-hono
 spec:
   accessModes: 
    - ReadWriteOnce
   capacity:
     storage: 1Mi
   hostPath:
-    path: /opentwins/hono
+    path: /openegiz/hono
     type: Directory
 
 {{- end }}

@@ -3,7 +3,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: "opentwins-telegraf-real-config"
+  name: "openegiz-telegraf-real-config"
   labels:
     app.kubernetes.io/managed-by: {{ .Release.Service | quote }}
     app.kubernetes.io/instance: {{ .Release.Name | quote }}
@@ -33,7 +33,7 @@ data:
       timeout = "120s"
       token = "{{ .Values.influxdb2.adminUser.token }}"
       urls = [
-        "http://{{ include "opentwins.influxdb2.fullname" . }}:80"
+        "http://{{ include "openegiz.influxdb2.fullname" . }}:80"
       ]
 {{- end }}
 
@@ -54,7 +54,7 @@ data:
     [[inputs.mqtt_consumer]]   
       qos = 1
       servers = [
-        "tcp://{{ include "opentwins.mosquitto.fullname" . }}:1883"
+        "tcp://{{ include "openegiz.mosquitto.fullname" . }}:1883"
       ]
       topics = [
         "{{ .Values.connections.ditto.target.mosquitto.address }}"

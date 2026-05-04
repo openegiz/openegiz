@@ -6,7 +6,7 @@ keywords:
 - digital-twin
 - IoT
 - iot-platform
-name: OpenEgiz
+name: openegiz
 sources:
 - https://github.com/openegiz/openegiz
 version: 1.0.0

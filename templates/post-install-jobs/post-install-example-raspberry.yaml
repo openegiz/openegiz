@@ -30,11 +30,11 @@ spec:
         image: "curlimages/curl:8.2.1"
         env:
           - name: DITTO_HOST
-            value: {{ include "opentwins.ditto.fullname" . | quote }}
+            value: {{ include "openegiz.ditto.fullname" . | quote }}
           - name: DITTO_NGINX_PORT
             value: {{ .Values.ditto.nginx.service.port | quote }}
           - name: EXTENDED_API_HOST
-            value: {{ include "opentwins.extendedAPI.fullname" . | quote }}
+            value: {{ include "openegiz.extendedAPI.fullname" . | quote }}
           - name: EXTENDED_API_PORT
             value: {{ .Values.extendedAPI.service.port | quote }}
           - name: DEVOPS_USER
@@ -49,16 +49,16 @@ spec:
         - /bin/sh
         - -c
         - |
-          cp /var/run/opentwins/example-raspberry-data/* /tmp/
+          cp /var/run/openegiz/example-raspberry-data/* /tmp/
           chmod +x /tmp/setup.sh
           cd /tmp
           ./setup.sh
         volumeMounts:
         - name: example-raspberry-data
-          mountPath: "/var/run/opentwins/example-raspberry-data"
+          mountPath: "/var/run/openegiz/example-raspberry-data"
           readOnly: true
         - name: ditto-gw-users
-          mountPath: "/var/run/opentwins/ditto-gw-users"
+          mountPath: "/var/run/openegiz/ditto-gw-users"
           readOnly: true
       volumes:
       - name: example-raspberry-data
@@ -67,6 +67,6 @@ spec:
           defaultMode: 0555
       - name: ditto-gw-users
         secret:
-          secretName: {{ printf "%s-%s" ( include "opentwins.ditto.fullname" . ) "gateway-secret" }}
+          secretName: {{ printf "%s-%s" ( include "openegiz.ditto.fullname" . ) "gateway-secret" }}
 
 {{- end }}

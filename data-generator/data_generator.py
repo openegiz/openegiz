@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Data generator for OpenTwins Oven digital twins (oven-01, oven-02).
+Data generator for OpenEgiz Oven digital twins (oven-01, oven-02).
 
 Sends simulated telemetry data via MQTT (Mosquitto) using the Eclipse Ditto protocol.
 Features: voltage_v, current_a, active_power_kw, power_factor.
@@ -169,7 +169,7 @@ class MqttPublisher:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Генератор данных для цифрового двойника печи (OpenTwins)",
+        description="Генератор данных для цифрового двойника печи (OpenEgiz)",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Примеры:

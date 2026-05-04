@@ -183,7 +183,7 @@ class SolarBridge:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Bridge: TDengine public MQTT -> OpenEgiz/OpenTwins"
+        description="Bridge: TDengine public MQTT -> OpenEgiz/OpenEgiz"
     )
     parser.add_argument(
         "--site-id",

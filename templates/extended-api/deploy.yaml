@@ -29,9 +29,9 @@ spec:
         - name: PORT 
           value: "{{ .Values.extendedAPI.service.port }}" 
         - name: MONGO_URI_POLICIES 
-          value: {{- if ((.Values.extendedAPI.mongodb).uri) }} {{ .Values.extendedAPI.mongodb.uri }} {{- else }} mongodb://{{ include "opentwins.mongodb.fullname" . }}/ditto {{- end }}
+          value: {{- if ((.Values.extendedAPI.mongodb).uri) }} {{ .Values.extendedAPI.mongodb.uri }} {{- else }} mongodb://{{ include "openegiz.mongodb.fullname" . }}/ditto {{- end }}
         - name: DITTO_URI_THINGS 
-          value: {{- if ((.Values.extendedAPI.ditto).uri) }} {{ .Values.extendedAPI.ditto.uri }} {{- else }} http://{{ include "opentwins.ditto.fullname" . }}-nginx:{{ .Values.ditto.nginx.service.port }} {{- end}}
+          value: {{- if ((.Values.extendedAPI.ditto).uri) }} {{ .Values.extendedAPI.ditto.uri }} {{- else }} http://{{ include "openegiz.ditto.fullname" . }}-nginx:{{ .Values.ditto.nginx.service.port }} {{- end}}
         - name: DITTO_USERNAME_API 
           value: {{ coalesce ((((.Values.extendedAPI.ditto).credentials).basic).user) .Values.ditto.global.basicAuthUsers.ditto.user "ditto" }} 
         - name: DITTO_PASSWORD_API 

@@ -15,10 +15,10 @@ data:
     apiVersion: 1
     datasources:
 {{- if .Values.influxdb2.enabled }}
-      - name: opentwins
+      - name: openegiz
         type: influxdb
         access: proxy
-        url: http://{{ include "opentwins.influxdb2.fullname" . }}:80
+        url: http://{{ include "openegiz.influxdb2.fullname" . }}:80
         isDefault: true
         jsonData:
           version: Flux

@@ -1,7 +1,7 @@
 # Генератор данных для цифрового двойника печи
 
 Генерирует и отправляет реалистичные данные электрических параметров
-промышленной печи (`org.digitalegiz:oven-01`) в OpenTwins через MQTT (Mosquitto).
+промышленной печи (`org.digitalegiz:oven-01`) в OpenEgiz через MQTT (Mosquitto).
 
 ## Параметры (features)
 

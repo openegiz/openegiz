@@ -4,7 +4,7 @@
   <img src="openegiz_logo_centered.svg" alt="OpenEgiz logo" width="240">
 </p>
 
-An open-source digital twin platform based on OpenTwins.
+An open-source digital twin platform for EGIZ solutions.
 
 ## Prerequisites
 
@@ -28,13 +28,9 @@ sudo chown $(id -u):$(id -g) ~/.kube/config
 ```
 
 ## Install Helm
-https://helm.sh/docs/intro/install/
 
-```bash
-curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-4
-chmod 700 get_helm.sh
-./get_helm.sh
-```
+Install Helm v3 using your trusted package manager or the official Helm installation guide:
+https://helm.sh/docs/intro/install/
 
 ## Quick Start
 
@@ -44,6 +40,9 @@ chmod 700 get_helm.sh
 ```bash
 make install
 ```
+
+`make install` adds the OpenEgiz Helm repository and downloads chart dependencies from:
+`https://raw.githubusercontent.com/openegiz/helm-charts/codex/bootstrap-openegiz-helm-charts`
 
 > **Примечание:** При первой установке MongoDB может не успеть запуститься до ditto-extended-api. Из-за этого Grafana не сможет подключиться. Перезапустите под:
 
@@ -72,7 +71,7 @@ make upload-build
 ## Creating Digital Twins
 
 1. Open the Grafana dashboard (run `make endpoints` to find the URL)
-2. Go to **OpenTwins** plugin in the left sidebar
+2. Go to **OpenEgiz** plugin in the left sidebar
 3. Click **Twins**
 4. Click **New twin**
 5. Set the **Namespace** to `org.openegiz`
@@ -101,7 +100,7 @@ python3 data-generator/data_generator.py
 1. Go to **Dashboards** in the left sidebar
 2. Click **Create dashboard**
 3. Click **Add visualization**
-4. Select data source **opentwins**
+4. Select data source **openegiz**
 5. In the right corner select visualization **Unity**
 6. In the bottom of the screen write a query to get data from the twins
     ```flux
@@ -126,6 +125,7 @@ python3 data-generator/data_generator.py
 
 | Command              | Description                                  |
 |----------------------|----------------------------------------------|
+| `make deps`          | Fetch OpenEgiz Helm chart dependencies       |
 | `make install`       | Install the Helm chart                       |
 | `make upgrade`       | Upgrade the Helm chart                       |
 | `make uninstall`     | Uninstall the Helm chart                     |

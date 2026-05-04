@@ -32,16 +32,16 @@ spec:
         - /bin/sh
         - -c
         - |
-          cp /var/run/opentwins/hono-connection-data/* /tmp/
+          cp /var/run/openegiz/hono-connection-data/* /tmp/
           chmod +x /tmp/hono-source-connection.sh
           cd /tmp
           ./hono-source-connection.sh
         volumeMounts:
         - name: hono-connection-data
-          mountPath: "/var/run/opentwins/hono-connection-data"
+          mountPath: "/var/run/openegiz/hono-connection-data"
           readOnly: true
         - name: ditto-gw-users
-          mountPath: "/var/run/opentwins/ditto-gw-users"
+          mountPath: "/var/run/openegiz/ditto-gw-users"
           readOnly: true
       volumes:
       - name: hono-connection-data
@@ -50,6 +50,6 @@ spec:
           defaultMode: 0555
       - name: ditto-gw-users
         secret:
-          secretName: {{ printf "%s-%s" ( include "opentwins.ditto.fullname" . ) "gateway-secret" }}
+          secretName: {{ printf "%s-%s" ( include "openegiz.ditto.fullname" . ) "gateway-secret" }}
 
 {{- end }}

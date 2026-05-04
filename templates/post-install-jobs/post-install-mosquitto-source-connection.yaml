@@ -28,11 +28,11 @@ spec:
         image: "curlimages/curl:8.2.1"
         env:
           - name: DITTO_HOST
-            value: {{ include "opentwins.ditto.fullname" . | quote }}
+            value: {{ include "openegiz.ditto.fullname" . | quote }}
           - name: DITTO_NGINX_PORT
             value: {{ .Values.ditto.nginx.service.port | quote }}
           - name: MOSQUITTO_HOST
-            value: {{ include "opentwins.mosquitto.fullname" . | quote }}
+            value: {{ include "openegiz.mosquitto.fullname" . | quote }}
           - name: DEVOPS_USER
             value: {{ .Values.ditto.global.basicAuthUsers.devops.user | quote }}
           - name: DEVOPS_PASSWORD
@@ -45,16 +45,16 @@ spec:
         - /bin/sh
         - -c
         - |
-          cp /var/run/opentwins/mosquitto-connection-data/* /tmp/
+          cp /var/run/openegiz/mosquitto-connection-data/* /tmp/
           chmod +x /tmp/mosquitto-source-connection.sh
           cd /tmp
           ./mosquitto-source-connection.sh
         volumeMounts:
         - name: mosquitto-connection-data
-          mountPath: "/var/run/opentwins/mosquitto-connection-data"
+          mountPath: "/var/run/openegiz/mosquitto-connection-data"
           readOnly: true
         - name: ditto-gw-users
-          mountPath: "/var/run/opentwins/ditto-gw-users"
+          mountPath: "/var/run/openegiz/ditto-gw-users"
           readOnly: true
       volumes:
       - name: mosquitto-connection-data
@@ -63,6 +63,6 @@ spec:
           defaultMode: 0555
       - name: ditto-gw-users
         secret:
-          secretName: {{ printf "%s-%s" ( include "opentwins.ditto.fullname" . ) "gateway-secret" }}
+          secretName: {{ printf "%s-%s" ( include "openegiz.ditto.fullname" . ) "gateway-secret" }}
 
 {{- end }}

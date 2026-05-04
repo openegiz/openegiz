@@ -4,12 +4,12 @@
 # This code is based on the file: https://github.com/eclipse/packages/blob/master/packages/cloud2edge/post-install/post-install.sh
 #######################################################################################################################################
 
-DITTO_DEVOPS_USER_PW="devops:$(cat /var/run/opentwins/ditto-gw-users/devops-password)"
+DITTO_DEVOPS_USER_PW="devops:$(cat /var/run/openegiz/ditto-gw-users/devops-password)"
 DEVICE_REGISTRY_URL_SCHEME="{{- if ( eq .Values.hono.deviceRegistryExample.hono.registry.http.insecurePortEnabled true ) }}http{{ else }}https{{ end }}"
 DEVICE_REGISTRY_PORT=$([ "${DEVICE_REGISTRY_URL_SCHEME}" = "http" ] && echo "8080" || echo "8443")
-DEVICE_REGISTRY_BASE_URL="${DEVICE_REGISTRY_URL_SCHEME}://{{ include "opentwins.hono.fullname" . }}-service-device-registry:${DEVICE_REGISTRY_PORT}/v1"
-DITTO_CONNECTIONS_BASE_URL="http://{{ include "opentwins.ditto.fullname" . }}-nginx:8080/api/2/connections"
-DITTO_THINGS_BASE_URL="http://{{ include "opentwins.ditto.fullname" . }}-nginx:8080/api/2/things"
+DEVICE_REGISTRY_BASE_URL="${DEVICE_REGISTRY_URL_SCHEME}://{{ include "openegiz.hono.fullname" . }}-service-device-registry:${DEVICE_REGISTRY_PORT}/v1"
+DITTO_CONNECTIONS_BASE_URL="http://{{ include "openegiz.ditto.fullname" . }}-nginx:8080/api/2/connections"
+DITTO_THINGS_BASE_URL="http://{{ include "openegiz.ditto.fullname" . }}-nginx:8080/api/2/things"
 
 DEMO_TENANT="{{ .Values.hono.nameHonoTenant }}"
 IS_USING_AMQP="{{- if ( has "amqp" .Values.hono.messagingNetworkTypes ) }}true{{ else }}false{{ end }}"

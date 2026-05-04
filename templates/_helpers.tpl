@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "opentwins.name" -}}
+{{- define "openegiz.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "opentwins.fullname" -}}
+{{- define "openegiz.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -34,16 +34,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "opentwins.chart" -}}
+{{- define "openegiz.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "opentwins.labels" -}}
-helm.sh/chart: {{ include "opentwins.chart" . }}
-{{ include "opentwins.selectorLabels" . }}
+{{- define "openegiz.labels" -}}
+helm.sh/chart: {{ include "openegiz.chart" . }}
+{{ include "openegiz.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -53,17 +53,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "opentwins.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "opentwins.name" . }}
+{{- define "openegiz.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "openegiz.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "opentwins.serviceAccountName" -}}
+{{- define "openegiz.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "opentwins.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "openegiz.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
@@ -72,7 +72,7 @@ Create the name of the service account to use
 {{/*
 Get the full name of the Hono sub chart.
 */}}
-{{- define "opentwins.hono.fullname" -}}
+{{- define "openegiz.hono.fullname" -}}
   {{- if .Values.hono.fullnameOverride }}
     {{- .Values.hono.fullnameOverride | trunc 63 | trimSuffix "-" }}
   {{- else }}
@@ -84,7 +84,7 @@ Get the full name of the Hono sub chart.
 {{/*
 Get the full name of the Ditto sub chart.
 */}}
-{{- define "opentwins.ditto.fullname" -}}
+{{- define "openegiz.ditto.fullname" -}}
   {{- if .Values.ditto.fullnameOverride }}
     {{- .Values.ditto.fullnameOverride | trunc 63 | trimSuffix "-" }}
   {{- else }}
@@ -96,7 +96,7 @@ Get the full name of the Ditto sub chart.
 {{/*
 Get the full name of the Mosquitto sub chart.
 */}}
-{{- define "opentwins.mosquitto.fullname" -}}
+{{- define "openegiz.mosquitto.fullname" -}}
   {{- if .Values.mosquitto.fullnameOverride }}
     {{- .Values.mosquitto.fullnameOverride | trunc 63 | trimSuffix "-" }}
   {{- else }}
@@ -108,7 +108,7 @@ Get the full name of the Mosquitto sub chart.
 {{/*
 Get the full name of the InfluxDB2 sub chart.
 */}}
-{{- define "opentwins.influxdb2.fullname" -}}
+{{- define "openegiz.influxdb2.fullname" -}}
   {{- if .Values.influxdb2.fullnameOverride }}
     {{- .Values.influxdb2.fullnameOverride | trunc 63 | trimSuffix "-" }}
   {{- else }}
@@ -121,7 +121,7 @@ Get the full name of the InfluxDB2 sub chart.
 {{/*
 Get the full name of the MongoDB sub chart.
 */}}
-{{- define "opentwins.mongodb.fullname" -}}
+{{- define "openegiz.mongodb.fullname" -}}
   {{- if .Values.mongodb.fullnameOverride }}
     {{- .Values.mongodb.fullnameOverride | trunc 63 | trimSuffix "-" }}
   {{- else }}
@@ -133,7 +133,7 @@ Get the full name of the MongoDB sub chart.
 {{/*
 Get the full name of Extended API.
 */}}
-{{- define "opentwins.extendedAPI.fullname" -}}
+{{- define "openegiz.extendedAPI.fullname" -}}
   {{- printf "%s-ditto-extended-api" .Release.Name | trunc 63 | trimSuffix "-" }}
 {{- end -}}
 

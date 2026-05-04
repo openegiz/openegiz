@@ -14,7 +14,7 @@ data:
   datasources.yaml: |+
     apiVersion: 1
     apps:
-      - type: ertis-opentwins-app
+      - type: openegiz-openegiz-app
         org_id: 1
         jsonData:
           dittoURL: http://{{ .Release.Name }}-ditto-nginx:{{ .Values.ditto.nginx.service.port }}

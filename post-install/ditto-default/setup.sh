@@ -3,7 +3,7 @@ source ditto-connection.sh
 
 DITTO_DEVOPS_USER_PW="{{ .Values.ditto.global.basicAuthUsers.devops.user }}:{{ .Values.ditto.global.basicAuthUsers.devops.password }}"
 DITTO_BASIC_USER_PW="{{.Values.ditto.global.basicAuthUsers.ditto.user}}:{{.Values.ditto.global.basicAuthUsers.ditto.password}}"
-DITTO_POLICIES_BASE_URL="http://{{ include "opentwins.ditto.fullname" . }}-nginx:{{ .Values.ditto.nginx.service.port }}/api/2/policies"
+DITTO_POLICIES_BASE_URL="http://{{ include "openegiz.ditto.fullname" . }}-nginx:{{ .Values.ditto.nginx.service.port }}/api/2/policies"
 
 wait_for_ditto_health
 

@@ -1,14 +1,21 @@
-.PHONY: install uninstall status endpoints upgrade upload-build generate-data copy-build
+.PHONY: deps install uninstall status endpoints upgrade upload-build generate-data copy-build
 
 RELEASE_NAME := openegiz
 CHART_PATH   := .
+HELM_REPO_NAME := openegiz
+HELM_REPO_URL  := https://raw.githubusercontent.com/openegiz/helm-charts/codex/bootstrap-openegiz-helm-charts
+
+## Fetch OpenEgiz-owned Helm dependencies
+deps:
+	helm repo add $(HELM_REPO_NAME) $(HELM_REPO_URL) --force-update
+	helm dependency build $(CHART_PATH) --skip-refresh
 
 ## Install the OpenEgiz Helm chart
-install:
+install: deps
 	helm install $(RELEASE_NAME) $(CHART_PATH) --wait --timeout=15m --debug
 
 ## Upgrade the OpenEgiz Helm chart
-upgrade:
+upgrade: deps
 	helm upgrade $(RELEASE_NAME) $(CHART_PATH) --wait --timeout=15m --debug
 
 ## Uninstall the OpenEgiz Helm chart

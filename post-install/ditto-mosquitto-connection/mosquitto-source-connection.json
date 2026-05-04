@@ -3,7 +3,7 @@
     "connectionType": "mqtt-5",
     "connectionStatus": "open",
     "failoverEnabled": true,
-    "uri": "tcp://{{ include "opentwins.mosquitto.fullname" . }}:1883",
+    "uri": "tcp://{{ include "openegiz.mosquitto.fullname" . }}:1883",
     "sources": [
         {
             "addresses":["{{ .Values.connections.ditto.source.mosquitto.address }}"],

@@ -3,7 +3,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: pv-opentwins-grafana
+  name: pv-openegiz-grafana
 spec:
   volumeMode: Filesystem
   accessModes:
@@ -11,7 +11,7 @@ spec:
   capacity:
     storage: 10Gi
   hostPath:
-    path: /opentwins/grafana
+    path: /openegiz/grafana
     type: DirectoryOrCreate
 
 {{- end }}

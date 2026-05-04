@@ -3,11 +3,11 @@
     "connectionType": "mqtt-5",
     "connectionStatus": "open",
     "failoverEnabled": true,
-    "uri": "tcp://{{ include "opentwins.mosquitto.fullname" . }}:1883",
+    "uri": "tcp://{{ include "openegiz.mosquitto.fullname" . }}:1883",
     "sources": [],
     "targets": [
         {
-            "address": {{ printf "\"opentwins/{{ topic:channel }}/{{ topic:criterion }}/{{ thing:namespace }}/{{ thing:name }}\"" }},
+            "address": {{ printf "\"openegiz/{{ topic:channel }}/{{ topic:criterion }}/{{ thing:namespace }}/{{ thing:name }}\"" }},
             "qos": 1,
             "topics": [
                 "_/_/things/twin/events?extraFields=thingId,attributes/_parents,features/idSimulationRun/properties/value",

@@ -30,7 +30,7 @@ spec:
         image: "curlimages/curl:8.2.1"
         env:
           - name: DITTO_HOST
-            value: {{ include "opentwins.ditto.fullname" . | quote }}
+            value: {{ include "openegiz.ditto.fullname" . | quote }}
           - name: DITTO_NGINX_PORT
             value: {{ .Values.ditto.nginx.service.port | quote }}
           - name: DEVOPS_USER
@@ -45,14 +45,14 @@ spec:
         - /bin/sh
         - -c
         - |
-          cd /var/run/opentwins/ditto-default-data/
+          cd /var/run/openegiz/ditto-default-data/
           ./setup.sh
         volumeMounts:
         - name: ditto-default-data
-          mountPath: "/var/run/opentwins/ditto-default-data"
+          mountPath: "/var/run/openegiz/ditto-default-data"
           readOnly: true
         - name: ditto-gw-users
-          mountPath: "/var/run/opentwins/ditto-gw-users"
+          mountPath: "/var/run/openegiz/ditto-gw-users"
           readOnly: true
       volumes:
       - name: ditto-default-data
@@ -61,6 +61,6 @@ spec:
           defaultMode: 0555
       - name: ditto-gw-users
         secret:
-          secretName: {{ printf "%s-%s" ( include "opentwins.ditto.fullname" . ) "gateway-secret" }}
+          secretName: {{ printf "%s-%s" ( include "openegiz.ditto.fullname" . ) "gateway-secret" }}
 
 {{- end }}

@@ -2,7 +2,7 @@
     "name": "hono-amqp-10-{{ .Values.connections.ditto.source.hono.tenantName }}",
     "connectionType": "amqp-10",
     "connectionStatus": "open",
-    "uri": "amqp://{{ .Values.connections.ditto.source.hono.username }}:{{ .Values.connections.ditto.source.hono.password }}@{{ include "opentwins.hono.fullname" . }}-dispatch-router-ext:15672",
+    "uri": "amqp://{{ .Values.connections.ditto.source.hono.username }}:{{ .Values.connections.ditto.source.hono.password }}@{{ include "openegiz.hono.fullname" . }}-dispatch-router-ext:15672",
     "failoverEnabled": true,
     "sources": [
       {

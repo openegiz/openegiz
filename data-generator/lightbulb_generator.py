@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Data generator for OpenTwins Lightbulb digital twin (summerschool:lightbulb-01).
+Data generator for OpenEgiz Lightbulb digital twin (summerschool:lightbulb-01).
 
 Sends simulated telemetry data via MQTT (Mosquitto) using the Eclipse Ditto protocol.
 Features: brightness, power_consumption, voltage, temperature.
@@ -270,7 +270,7 @@ def start_http_server(simulator: LightbulbSimulator, port: int):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Генератор данных для цифрового двойника лампочки (OpenTwins)",
+        description="Генератор данных для цифрового двойника лампочки (OpenEgiz)",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Примеры:

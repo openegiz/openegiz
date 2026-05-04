@@ -46,8 +46,8 @@ spec:
             name: data-volume
         args:
           - |
-            BASE_URL="http://{{ include "opentwins.ditto.fullname" . }}-nginx:{{ .Values.ditto.nginx.service.port }}"
-            HEALTH_URL="http://{{ include "opentwins.ditto.fullname" . }}-gateway:{{ .Values.ditto.gateway.service.port }}/status/health"
+            BASE_URL="http://{{ include "openegiz.ditto.fullname" . }}-nginx:{{ .Values.ditto.nginx.service.port }}"
+            HEALTH_URL="http://{{ include "openegiz.ditto.fullname" . }}-gateway:{{ .Values.ditto.gateway.service.port }}/status/health"
             API_URL="${BASE_URL}/api/2/connections"
             AUTH="{{ .Values.ditto.global.basicAuthUsers.devops.user }}:{{ .Values.ditto.global.basicAuthUsers.devops.password }}"
             

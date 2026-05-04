@@ -7,8 +7,8 @@
     "sources": [
         {
             "addresses": [
-                "opentwins-example/dont-copy/only-example/very-insecure/DHT22_1",
-                "opentwins-example/dont-copy/only-example/very-insecure/DHT22_2"
+                "openegiz-example/dont-copy/only-example/very-insecure/DHT22_1",
+                "openegiz-example/dont-copy/only-example/very-insecure/DHT22_2"
             ],
             "consumerCount": 1,
             "qos": 0,

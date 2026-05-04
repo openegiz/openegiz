@@ -15,7 +15,7 @@ from influxdb_client import InfluxDBClient
 
 
 DEFAULT_INFLUX_URL = "http://localhost:30716"
-DEFAULT_INFLUX_ORG = "opentwins"
+DEFAULT_INFLUX_ORG = "openegiz"
 DEFAULT_INFLUX_BUCKET = "default"
 DEFAULT_INFLUX_TOKEN = "Hjh3ysMQ6evK=qqpFSYqn-s3JGovJLfHxyCDM=eNNZkdM-uuro93dNtJcodejLYYob2geKQ/29z3Kxui=y6FlL?dZeU9EFRxrYn284V/kZG5==jxLVAMJrYOv?LF79ahwIbhvstMN6gmfQ3DH7/IzUB7VlBZK-cd8aN7YqiFrYRLkBUv7H0QkbqPxgf2dMgCMCwZaLMk9RUeMaBfx2lQ=Mq1EEJJw-Jp!BmpCDnhlc!6D22PaE=Y3sgWWNhRv8oP"
 

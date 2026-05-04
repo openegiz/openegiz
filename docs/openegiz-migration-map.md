@@ -21,7 +21,7 @@ This branch moves OpenEgiz to OpenEgiz-owned runtime download points and source 
 | Helm dependency repository | `https://raw.githubusercontent.com/openegiz/helm-charts/codex/bootstrap-openegiz-helm-charts` | OpenEgiz | `make deps`, `make install`, and `make upgrade` fetch dependencies from this repository. |
 | Grafana app plugin zip | `https://raw.githubusercontent.com/openegiz/helm-charts/codex/bootstrap-openegiz-helm-charts/plugins/openegiz-openegiz-app.zip` | OpenEgiz | Plugin ID `openegiz-openegiz-app`, name `OpenEgiz`, author `OpenEgiz`, logo `img/logo.svg`. |
 | Grafana Unity panel zip | `https://raw.githubusercontent.com/openegiz/helm-charts/codex/bootstrap-openegiz-helm-charts/plugins/openegiz-unity-panel.zip` | OpenEgiz | Plugin ID `openegiz-unity-panel`, author `OpenEgiz`, logo `img/logo.svg`. |
-| Ditto Extended API image | `ghcr.io/openegiz/ditto-extended-api:latest` | OpenEgiz | Public anonymous pull verified. |
+| Ditto Extended API image | `ghcr.io/openegiz/ditto-extended-api:latest` | OpenEgiz | Public anonymous pull verified; `linux/amd64` and `linux/arm64` manifests published. |
 | Kafka-ML backend image | `ghcr.io/openegiz/kafka-ml-backend:latest` | OpenEgiz | Public anonymous pull verified. |
 | Kafka-ML frontend image | `ghcr.io/openegiz/kafka-ml-frontend:latest` | OpenEgiz | Public anonymous pull verified. |
 | Kafka-ML Kafka control logger image | `ghcr.io/openegiz/kafka-ml-kafka_control_logger:latest` | OpenEgiz | Public anonymous pull verified. |

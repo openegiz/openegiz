@@ -7,7 +7,7 @@ from urllib.parse import unquote, urlparse
 
 
 ROOT = Path(__file__).resolve().parent
-HOST = "127.0.0.1"
+HOST = "0.0.0.0"
 PORT = 5555
 DITTO_FEATURES_URL = "http://localhost:30525/api/2/things/summerschool:lightbulb-01/features"
 DITTO_AUTH = base64.b64encode(b"ditto:ditto").decode("ascii")
@@ -57,5 +57,6 @@ class Handler(SimpleHTTPRequestHandler):
 
 if __name__ == "__main__":
     server = ThreadingHTTPServer((HOST, PORT), Handler)
-    print(f"Server running: http://{HOST}:{PORT}")
+    print(f"Server running on all interfaces: http://{HOST}:{PORT}")
+    print("Open it from the host browser as: http://<VM_IP>:5555")
     server.serve_forever()

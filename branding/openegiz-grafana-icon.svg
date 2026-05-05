@@ -1,0 +1,12 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="openegizMark" x1="18" y1="22" x2="110" y2="106" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0C43C5"/>
+      <stop offset="0.48" stop-color="#1C97E4"/>
+      <stop offset="1" stop-color="#1FD7BC"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="112" height="112" rx="28" fill="#07111F"/>
+  <path d="M41 87C28.5 87 20 77.6 20 64C20 50.4 28.5 41 41 41C53.5 41 62 50.4 62 64C62 77.6 53.5 87 41 87ZM41 75.6C46.5 75.6 50.1 71.2 50.1 64C50.1 56.8 46.5 52.4 41 52.4C35.5 52.4 31.9 56.8 31.9 64C31.9 71.2 35.5 75.6 41 75.6Z" fill="url(#openegizMark)"/>
+  <path d="M71 87V41H106V52.2H83V58.9H103.4V69.6H83V75.8H106.8V87H71Z" fill="url(#openegizMark)"/>
+</svg>

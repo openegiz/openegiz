@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "openegiz.name" . }}-grafana-branding
+  labels:
+    app.kubernetes.io/managed-by: {{ .Release.Service | quote }}
+    app.kubernetes.io/instance: {{ .Release.Name | quote }}
+    app.kubernetes.io/version: {{ .Chart.AppVersion }}
+    helm.sh/chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+data:
+  grafana_icon.svg: |-
+{{ .Files.Get "branding/openegiz-grafana-icon.svg" | indent 4 }}
+  grafana_typelogo.svg: |-
+{{ .Files.Get "branding/openegiz-grafana-typelogo.svg" | indent 4 }}
+  grafana_text_logo_dark.svg: |-
+{{ .Files.Get "branding/openegiz-grafana-typelogo.svg" | indent 4 }}
+  grafana_text_logo_light.svg: |-
+{{ .Files.Get "branding/openegiz-grafana-typelogo.svg" | indent 4 }}

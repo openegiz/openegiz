@@ -268,9 +268,52 @@ grafana:
   enabled: true # Value added by OpenEgiz to indicate if this component should be installed or not
   persistence:
     enabled: true
+  initChownData:
+    enabled: false
   service:
     type: NodePort
     nodePort: 30718
+  extraConfigmapMounts:
+  - name: openegiz-grafana-icon
+    configMap: openegiz-grafana-branding
+    mountPath: /usr/share/grafana/public/img/grafana_icon.svg
+    subPath: grafana_icon.svg
+    readOnly: true
+  - name: openegiz-grafana-icon-build
+    configMap: openegiz-grafana-branding
+    mountPath: /usr/share/grafana/public/build/img/grafana_icon.svg
+    subPath: grafana_icon.svg
+    readOnly: true
+  - name: openegiz-grafana-typelogo
+    configMap: openegiz-grafana-branding
+    mountPath: /usr/share/grafana/public/img/grafana_typelogo.svg
+    subPath: grafana_typelogo.svg
+    readOnly: true
+  - name: openegiz-grafana-typelogo-build
+    configMap: openegiz-grafana-branding
+    mountPath: /usr/share/grafana/public/build/img/grafana_typelogo.svg
+    subPath: grafana_typelogo.svg
+    readOnly: true
+  - name: openegiz-grafana-text-logo-dark
+    configMap: openegiz-grafana-branding
+    mountPath: /usr/share/grafana/public/img/grafana_text_logo_dark.svg
+    subPath: grafana_text_logo_dark.svg
+    readOnly: true
+  - name: openegiz-grafana-text-logo-dark-build
+    configMap: openegiz-grafana-branding
+    mountPath: /usr/share/grafana/public/build/img/grafana_text_logo_dark.svg
+    subPath: grafana_text_logo_dark.svg
+    readOnly: true
+  - name: openegiz-grafana-text-logo-light
+    configMap: openegiz-grafana-branding
+    mountPath: /usr/share/grafana/public/img/grafana_text_logo_light.svg
+    subPath: grafana_text_logo_light.svg
+    readOnly: true
+  - name: openegiz-grafana-text-logo-light-build
+    configMap: openegiz-grafana-branding
+    mountPath: /usr/share/grafana/public/build/img/grafana_text_logo_light.svg
+    subPath: grafana_text_logo_light.svg
+    readOnly: true
   adminUser: admin
   adminPassword: admin
   grafana.ini:
